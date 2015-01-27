@@ -7,7 +7,8 @@ public class GenericQueue<Item> implements Iterable<Item> {
 	private Node first, last;
 	private int n;
 	
-	private class Node{ // node definition
+	// node definition
+	private class Node{
 		Item data;
 		Node next;
 		
@@ -17,10 +18,13 @@ public class GenericQueue<Item> implements Iterable<Item> {
 		}
 	}
 	
+	// isEmpty
 	public boolean isEmpty(){ return first == null; }
 	
+	// size
 	public int size(){ return n; }
 	
+	// enqueue
 	public void enqueue(Item dataVal){
 		Node temp = last;
 		last = new Node(dataVal);
@@ -32,6 +36,7 @@ public class GenericQueue<Item> implements Iterable<Item> {
 		n++;
 	}
 	
+	// dequeue
 	public Item dequeue(){
 		Item ret = first.data;
 		first = first.next;
@@ -42,6 +47,7 @@ public class GenericQueue<Item> implements Iterable<Item> {
 		return ret;
 	}
 	
+	// iterator
 	public Iterator<Item> iterator(){ return new QueueIterator(); }
 	
 	private class QueueIterator implements Iterator<Item>{
