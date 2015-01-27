@@ -18,6 +18,12 @@ public class GenericQueue<Item> implements Iterable<Item> {
 		}
 	}
 	
+	// ctor
+	public GenericQueue(){
+		first = last = null;
+		n = 0;
+	}
+	
 	// isEmpty
 	public boolean isEmpty(){ return first == null; }
 	
