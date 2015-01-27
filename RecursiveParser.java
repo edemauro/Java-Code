@@ -1,5 +1,17 @@
-// Eric Demauro, Recursive descent parser.
-
+/* Eric Demauro, Recursive descent parser.
+   COMP 333
+   Grammar:
+   Program     -> stmt_list $$
+   stmt_list   -> stmt stmt_list | epsilon
+   stmt        -> id := expr | read id | write expr
+   expr        -> term term_tail
+   term_tail   -> add_op term term_tail | epsilon
+   term        -> factor factor_tail
+   factor_tail -> mult_op factor factor_tail | epsilon
+   factor      -> ( expr ) | id | number
+   add_op      -> + | -
+   mult_op     -> * | /
+*/
 import java.util.Scanner;
 
 // “Sum := 5 + 3 * 2”
