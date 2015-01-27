@@ -4,11 +4,12 @@ import java.util.Iterator;
 
 public class GenericStack<Item> implements Iterable<Item>{
 	private Item[] data; // array to hold stack items
-	private int n = 0; // number of elements in array
+	private int; // number of elements in array
 	
 	// ctor
 	public GenericStack(int maxSize){
 		data = (Item[]) new Object[maxSize]; // have to cast.
+		n = 0;
 	}
 	
 	// isEmpty
