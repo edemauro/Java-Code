@@ -14,8 +14,7 @@ public class GenericStack<Item> implements Iterable<Item>{
 	
 	// no-arg ctor
 	public GenericStack(){
-		data = (Item[]) new Object[10];
-		n = 0;
+		this(10);
 	}
 	
 	// isEmpty
