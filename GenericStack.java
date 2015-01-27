@@ -48,17 +48,5 @@ public class GenericStack<Item> implements Iterable<Item>{
 		public Item next(){ return data[--i]; }
 		public void remove(){}
 	}
-	
-	public static void main(String[] args){
-		GenericStack<Integer> s = new GenericStack<Integer>(2);
-		
-		for(int i = 1; i < 100; i++){
-			s.push(i);
-		}
-		
-		for(int i : s){
-			System.out.println(i);
-		}
-	}
 }
 
