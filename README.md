@@ -1,6 +1,6 @@
 # java-code
 
-Some programs I worked on during college (recursive descent parser and data structures).
+Some programs I worked on during college
 
 ## Parsers
 * Recursive Descent
