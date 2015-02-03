@@ -8,7 +8,6 @@ Some programs I worked on during college (recursive descent parser and data stru
 ## Data Structures
 * Stack 
 * Queue
-* Hash table
 
 ## Games
 * Simple blackjack
