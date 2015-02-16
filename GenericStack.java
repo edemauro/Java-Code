@@ -12,6 +12,11 @@ public class GenericStack<Item> implements Iterable<Item>{
 		n = 0;
 	}
 	
+	// no-arg ctor
+	public GenericStack(){
+		this(10);
+	}
+	
 	// isEmpty
 	public boolean isEmpty(){ return n == 0; }
 	
