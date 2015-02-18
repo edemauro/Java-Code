@@ -13,4 +13,5 @@ Some programs I worked on during college
 * Simple blackjack
 
 ## Misc
-* Quiz cards
+* Quiz cards / flash cards
+* Chat clients and server
