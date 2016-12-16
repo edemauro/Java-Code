@@ -1,0 +1,4 @@
+app:
+  image: java:9-jdk
+  volumes:
+    - ".:/src"
