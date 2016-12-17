@@ -1,8 +1,5 @@
 public class Traversal {
-  private Node root;
-
   public static void main(String[] args) {
-    Traversal t = new Traversal();
     Node a = new Node(2);
     Node b = new Node(3);
     Node root = new Node(a, b, 1);
