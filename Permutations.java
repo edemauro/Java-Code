@@ -18,7 +18,9 @@ public class Permutations {
       for(int i = 0; i < s.length(); i++) {
         sb.append(s.charAt(i));
         perm(s.substring(0, i) + s.substring(i + 1, s.length()));
-        sb.setLength(sb.length() - 1); // had to use setLength over delete
+        // can use setLength or deleteCharAt. Just gotta make sure its the last
+        // element. I believe setLength is slightly faster, however.
+        sb.setLength(sb.length() - 1);
       }
     }
   }
