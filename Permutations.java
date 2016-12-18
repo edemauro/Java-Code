@@ -20,6 +20,11 @@ public class Permutations {
         perm(s.substring(0, i) + s.substring(i + 1, s.length()));
         // can use setLength or deleteCharAt. Just gotta make sure its the last
         // element. I believe setLength is slightly faster, however.
+
+        // we gotta use sb.length() - 1 because we have to make sure we get the
+        // last element rather than i.
+        // example "abc" logged. then return to i = b. we gotta peel off the c
+        // not the b, which would be peeled off w/ i instead of length...
         sb.setLength(sb.length() - 1);
       }
     }
