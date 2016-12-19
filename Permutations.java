@@ -10,6 +10,12 @@ public class Permutations {
   //     }
   //   }
   // }
+  // String vs SB: if we use a string rather than stringbuilder, the last 
+  // character is ALREADY peeled off once we perform the recursive return. 
+  // This is because even though the String reference is passed by value 
+  // (and a copy of the reference is made), Strings are immutable. Thus, 
+  // even though the String is changed by prefix + charAt, the original String 
+  // (prefix) remains unchanged. If we return from "abc", prefix is still "ab".
 
   public static void perm(String s) {
     if(s.length() == 0) {
