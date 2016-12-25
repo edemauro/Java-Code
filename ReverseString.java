@@ -24,7 +24,7 @@ public class ReverseString {
 
     System.out.println(str);
 
-    System.out.println(recursiveReverse(a);
+    System.out.println(recursiveReverse(a));
 	}
 
   public static char[] reverse(char[] arr, int start, int end) {
