@@ -16,6 +16,7 @@ public class Permutations {
   // (and a copy of the reference is made), Strings are immutable. Thus, 
   // even though the String is changed by prefix + charAt, the original String 
   // (prefix) remains unchanged. If we return from "abc", prefix is still "ab".
+  // An entirely new String object, "abc", was passed to the function call.
 
   public static void perm(String s) {
     if(s.length() == 0) {
