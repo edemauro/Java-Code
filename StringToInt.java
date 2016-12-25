@@ -1,6 +1,7 @@
 public class StringToInt {
   public static void main(String[] args) {
     System.out.println( convert("-421") );
+    System.out.println( intToString(-342) );
   }
 
   public static int convert(String str) {
@@ -19,5 +20,31 @@ public class StringToInt {
     }
 
     return negative ? (numb *= -1) : numb;
+  }
+
+  public static String intToString(int numb) {
+    StringBuilder sb = new StringBuilder();
+    char[] tmp = new char[11];
+    int i = 0;
+    boolean isNeg = false;
+
+    if( numb < 0 ) {
+      isNeg = true;
+      numb = -numb;
+    }
+
+    do {
+      tmp[i++] = (char) ((numb % 10) + '0');
+      numb /= 10;
+    } while( numb != 0 );
+
+    if(isNeg) {
+      sb.append('-');
+    }
+
+    while(i >= 0) {
+      sb.append(tmp[i--]);
+    }
+    return sb.toString();
   }
 }
