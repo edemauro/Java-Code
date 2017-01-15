@@ -3,7 +3,7 @@ public class RodCutting {
     int[] arr = new int[] {1, 5, 8, 9, 10, 17, 17, 20};
 
     System.out.println(dynamicCutRod(arr, arr.length));
-    System.out.println(bottomUpRodCutting(arr, arr.length));
+    System.out.println(bottomUpRodCutting(arr, arr.length ));
   }
 
   public static int cutRod(int[] arr, int n) {
@@ -22,8 +22,9 @@ public class RodCutting {
 
   public static int dynamicCutRod(int[] arr, int n) {
     int[] r = new int[n + 1];
+    r[0] = 0;
 
-    for(int i = 0; i < r.length; i++) {
+    for(int i = 1; i < r.length; i++) {
       r[i] = Integer.MIN_VALUE;
     }
 
@@ -37,13 +38,9 @@ public class RodCutting {
       return r[n];
     }
 
-    if(n == 0) {
-      q = 0;
-    } else {
-      q = Integer.MIN_VALUE;
-      for(int i = 1; i <= n; i++) {
-        q = Math.max(q, arr[i - 1] + dynamicCutRodHelper(arr, n - i, r));
-      }
+    q = Integer.MIN_VALUE;
+    for(int i = 1; i <= n; i++) {
+      q = Math.max(q, arr[i - 1] + dynamicCutRodHelper(arr, n - i, r));
     }
     r[n] = q;
     return q;
