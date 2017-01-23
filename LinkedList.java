@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class LinkedList {
   Node head;
   Node tail;
@@ -8,11 +10,38 @@ public class LinkedList {
       list.insert(new Node(i));
     }
 
-    System.out.println(list.mToLast(4));
+    // System.out.println(list.mToLast(4));
+
+    Node a = new Node(5);
+    Node b = new Node(33);
+    Node c = new Node(17);
+    Node d = new Node(2);
+    Node e = new Node(1);
 
     LinkedList list2 = new LinkedList();
+    list2.insert(e);
+    list2.insert(d);
+    list2.insert(c);
+    list2.insert(b);
+    list2.insert(a);
 
-    list.insert(new Node(5));
+    Node f = new Node(6);
+    Node g = new Node(25);
+
+    f.setNext(g);
+    g.setPrev(f);
+    a.setChild(f);
+
+    list2.flatten();
+
+    Node ptr = list2.getHead();
+
+    while(ptr != null) {
+      System.out.println(ptr);
+      ptr = ptr.next();
+    }
+
+    System.out.println(list2.getTail());
   }
 
   public LinkedList() {
@@ -53,7 +82,27 @@ public class LinkedList {
   }
 
   public void flatten() {
+    Node curr = head;
 
+    while(curr.next() != null) {
+      if(curr.child != null) {
+        appendToList(curr.child, tail);
+      }
+      curr = curr.next();
+    }
+
+    tail = curr;
+  }
+
+  public static void appendToList(Node child, Node tail) {
+    tail.setNext(child);
+    child.setPrev(tail);
+
+    while(child != null) {
+      child = child.next();
+    }
+
+    tail = child;
   }
 
   public void unflatten() {
@@ -61,12 +110,13 @@ public class LinkedList {
   }
 
   public Node insert(Node elem) {
-    if(head != null) {
+    if(head == null) {
+      head = tail = elem;
+    } else {
       elem.next = head;
       head.prev = elem;
+      head = elem;
     }
-
-    head = elem;
 
     return elem;
   }
