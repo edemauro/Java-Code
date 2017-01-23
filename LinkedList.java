@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class LinkedList {
-  Node head;
-  Node tail;
+  private Node head;
+  private Node tail;
 
   public static void main(String[] args) {
     LinkedList list = new LinkedList();
@@ -41,6 +41,19 @@ public class LinkedList {
       ptr = ptr.next();
     }
 
+    System.out.println("");
+    System.out.println(list2.getTail());
+    System.out.println("");
+    list2.unflatten();
+
+    ptr = list2.getHead();
+
+    while(ptr != null) {
+      System.out.println(ptr);
+      ptr = ptr.next();
+    }
+
+    System.out.println("");
     System.out.println(list2.getTail());
   }
 
@@ -94,7 +107,7 @@ public class LinkedList {
     tail = curr;
   }
 
-  public static void appendToList(Node child, Node tail) {
+  public void appendToList(Node child, Node tail) {
     tail.setNext(child);
     child.setPrev(tail);
 
@@ -106,7 +119,25 @@ public class LinkedList {
   }
 
   public void unflatten() {
+    Node curr = head;
 
+    explore(head);
+
+    for(; curr != null; curr = curr.next())
+    tail = curr;
+  }
+
+  public void explore(Node start) {
+    Node curr = start;
+    while(curr != null) {
+      if(curr.child != null) {
+        curr.child.prev.next = null;
+        curr.child.setPrev(null);
+        explore(curr.child);
+      }
+
+      curr = curr.next();
+    }
   }
 
   public Node insert(Node elem) {
@@ -122,10 +153,10 @@ public class LinkedList {
   }
 
   private static class Node {
-    int data;
-    Node next;
-    Node prev;
-    Node child;
+    private int data;
+    private Node next;
+    private Node prev;
+    private Node child;
 
     public Node(int data) {
       this(data, null, null, null);
