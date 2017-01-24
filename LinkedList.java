@@ -109,7 +109,10 @@ public class LinkedList {
 
     explore(head);
 
-    for(; curr != null; curr = curr.next)
+    for(; curr.next != null; curr = curr.next) {
+
+    }
+    
     tail = curr;
   }
 
