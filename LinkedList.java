@@ -85,21 +85,19 @@ public class LinkedList {
   public void flatten() {
     Node curr = head;
 
-    while(curr.next != null) {
+    while(curr != null) {
       if(curr.child != null) {
-        appendToList(curr.child, tail);
+        appendToList(curr.child);
       }
       curr = curr.next;
     }
-
-    tail = curr;
   }
 
-  public void appendToList(Node child, Node tail) {
+  public void appendToList(Node child) {
     tail.next = child;
     child.prev = tail;
 
-    while(child != null) {
+    while(child.next != null) {
       child = child.next;
     }
 
