@@ -16,7 +16,7 @@ public class ReverseString {
         end++;
       } else {
         reverse(str, start, end - 1);
-        str[end++] = ' '; 
+        end++;
         start = end;
       }
     }
