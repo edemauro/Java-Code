@@ -10,9 +10,9 @@ public class Combinations {
   private static StringBuilder sb = new StringBuilder();
 
   public static void comb(String s) {
-    System.out.println(sb);
     for(int i = 0; i < s.length(); i++) {
       sb.append(s.charAt(i));
+      System.out.println(sb);
       comb(s.substring(i + 1));
       sb.setLength(sb.length() - 1);
     }
